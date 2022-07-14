@@ -11,6 +11,7 @@ class Solution{
 };
 
 
+/* ------------------------------------------------------------------*/
 
 //Another Method
 int getMissingNo(int a[], int n)
