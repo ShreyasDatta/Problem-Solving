@@ -1,19 +1,32 @@
 //Problem: https://practice.geeksforgeeks.org/problems/find-duplicates-in-an-array/1/?page=1&difficulty[]=0&category[]=Arrays&sortBy=submissions#
 
-class Solution{
-  public:
-    vector<int> duplicates(int arr[], int n) {
-        vector<int> v;
-        int a[n]={0};
-        for(int i=0; i<n;i++){
-            a[arr[i]]++;
-        }
+class Solution
+{
+    public:
+    //Function to find a continuous sub-array which adds up to a given number.
+    vector<int> subarraySum(int arr[], int n, long long s)
+    {
+        int sum=0, k=0;
+        vector<int> sub;
+        
         for(int i=0;i<n;i++){
-            if(a[i]>1)
-                v.push_back(i);
+            
+            sum+=arr[i];
+            
+            if(sum>=s){
+                while(k<i && sum>s){
+                    sum-=arr[k];
+                    k++;
+                }
+                if(sum==s){
+                    sub.push_back(k+1);
+                    sub.push_back(i+1);
+                    return sub;
+                } 
+            }
         }
-        if(v.empty())
-            v.push_back(-1);
-        return v;
+        if(sub.empty())
+            sub.push_back(-1);
+        return sub;
     }
 };
