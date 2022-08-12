@@ -10,20 +10,18 @@ class Solution{
             return arr[0];
         if(N==0)
             return "-1";
+            
         sort(arr, arr+N);
-        bool t=true;
         int i=0;
         string str;
-        while(t){
-            char a=arr[0][i];
-            char b=arr[N-1][i];
-            if(a==b){
-                str.push_back(a);
-                i++;
-            }
-            else
-                t=false;
+        string a=arr[0];
+        string b=arr[N-1];
+            
+        while(a[i]==b[i]){
+            str.push_back(a[i]);
+            i++;
         }
+        
         if(str.length()==0)
             return "-1";
         else
