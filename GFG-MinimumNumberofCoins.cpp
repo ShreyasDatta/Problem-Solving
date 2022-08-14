@@ -38,3 +38,24 @@ public:
         return v;
     }
 };
+
+
+
+/* ------------------------------Alternate-----------------------------------------*/
+
+vector<int> minPartition(int N){
+       vector<int> money {2000,500,200,100,50,20,10,5,2,1};
+       vector<int> ans;
+       int i=0;
+       int n=money.size();
+       while(N>0){
+           if(N>=money[i]){
+               N-=money[i];
+               ans.push_back(money[i]);
+           }
+           else{
+               i++;
+           }
+       }
+       return ans;
+   }
