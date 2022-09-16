@@ -1,5 +1,7 @@
 Q. Find Middle element of a linked list
 
+> Using slow and fast pointer
+
 ```
 class Solution{
     public:
